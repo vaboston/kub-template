@@ -2,12 +2,14 @@ version                                    :
 cluster-info                               :
 label                                      :
 get node/deploy/svc/pod                    :
+get po -o wide                             : wide extend output
+get po test -o yaml --export               : export conf without cluster infos
 run name --image=toto --port=8008          :
 config use-context toto                    :
 config current-context                     :
 config set-context toto -n monNameSpace    :
 proxy                                      : expose le réseau rivé à travers un endpoint
-logs                                       :
+logs (-p to previous instance)             :
 describe                                   :
 exec $pod_name /bin/bash                   :
 set image deploy/mon_dep mondep=image:v2   :
@@ -17,4 +19,6 @@ scale deploy/mon_dep --replicas=4          :
 rollout status deploy/mon_dep              :
 rollout undo deploy/mon_dep                :
 get cronjob --watch                        :
+kubectl run buxybox --image=busybox 
+  --command --restart=Never -it -- env     : 
  
