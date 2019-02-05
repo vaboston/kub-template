@@ -1,0 +1,1 @@
+kubectl run sise --image=mhausenblas/simpleservice:0.5.0 --port=9876

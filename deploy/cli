@@ -1,0 +1,5 @@
+kubectl rollout history deploy/sise-deploy
+kubectl rollout undo deploy/sise-deploy --to-revision=1
+kubectl rollout history deploy/sise-deploy
+
+--expose : créer un service avec le deploy

@@ -1,0 +1,20 @@
+version                                    :
+cluster-info                               :
+label                                      :
+get node/deploy/svc/pod                    :
+run name --image=toto --port=8008          :
+config use-context toto                    :
+config current-context                     :
+config set-context toto -n monNameSpace    :
+proxy                                      : expose le réseau rivé à travers un endpoint
+logs                                       :
+describe                                   :
+exec $pod_name /bin/bash                   :
+set image deploy/mon_dep mondep=image:v2   :
+expose deploy/mon_dep --type=NodePort
+-- port=8080                               :
+scale deploy/mon_dep --replicas=4          :
+rollout status deploy/mon_dep              :
+rollout undo deploy/mon_dep                :
+get cronjob --watch                        :
+ 
